@@ -28,5 +28,27 @@ namespace InternPipeline.Repositories.Repository
             }
             return null;
         }
+
+        public async Task<BlogModel?> GetByBlogIdRepository(Guid id)
+        {
+            try
+            {
+                var blogInstanc = await _dbContext.BlogTable.FirstOrDefaultAsync(x => x.Id == id);
+
+                return blogInstanc;
+            }
+            catch (Exception ex)
+            {
+                // add logger ex
+            }
+            return null;
+        }
+
+        //public async Task<List<BlogModel>> GetBlogRepository()
+        //{
+
+        //    var profilesDomain = await profileRepository.GetAllAsync();
+
+        //}
     }
 }

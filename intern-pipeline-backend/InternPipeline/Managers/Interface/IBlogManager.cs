@@ -8,6 +8,10 @@ namespace InternPipeline.Managers.Interface
     {
         //Rizve
         Task<CommonResponse> CreateBlogManager(CreateBlogRequestEntity createBlogRequestEntity);
+        //ask<CommonResponse> GetBlogManager();
+
+        Task<CommonResponse?> GetByBlogIdManager(Guid id);
+
 
 
     }

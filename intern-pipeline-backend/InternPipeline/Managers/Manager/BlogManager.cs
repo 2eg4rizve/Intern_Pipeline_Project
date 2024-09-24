@@ -118,6 +118,34 @@ namespace InternPipeline.Managers.Manager
             return commonResponse;
         }
 
+        public async Task<CommonResponse> GetBlogManager()
+        {
+            var commonResponse = new CommonResponse();
+            try
+            {
+
+                var createTopic = await _blogRepository.GetBlogRepository();
+                if (createTopic == null)
+                {
+                    // logger
+                    commonResponse.status_code = 422;
+                    commonResponse.message = "Failed to create topic";
+                    return commonResponse;
+                }
+                commonResponse.status_code = 200;
+                commonResponse.message = "Success";
+                commonResponse.data = createTopic;
+                return commonResponse;
+
+            }
+            catch (Exception ex)
+            {
+                // add logger ex
+                commonResponse.status_code = 500;
+            }
+            return commonResponse;
+        }
+
 
 
         //public async Task<CommonResponse> GetBlogManager()

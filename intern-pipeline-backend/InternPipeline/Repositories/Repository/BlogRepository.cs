@@ -68,6 +68,11 @@ namespace InternPipeline.Repositories.Repository
             return null;
         }
 
+        public async Task<List<BlogModel>> GetBlogRepository()
+        {
+            return await _dbContext.BlogTable.ToListAsync();
+        }
+
 
         //public async Task<List<BlogModel>> GetBlogRepository()
         //{

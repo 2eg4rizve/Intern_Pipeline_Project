@@ -26,12 +26,12 @@ namespace InternPipeline.Controllers
 
 
 
-        //[HttpGet("get-blog")]
-        //public async Task<IActionResult> GetBlog()
-        //{
-        //    var response = await _blogManager.GetBlogManager();
-        //    return Ok(response);
-        //}
+        [HttpGet("get-all-blog")]
+        public async Task<IActionResult> GetBlog()
+        {
+            var response = await _blogManager.GetBlogManager();
+            return Ok(response);
+        }
 
 
 

@@ -13,6 +13,9 @@ namespace InternPipeline.Managers.Interface
         Task<CommonResponse?> GetByBlogIdManager(Guid id);
 
 
+        Task<CommonResponse?> DeleteBlogManager(Guid id);
+
+
 
     }
 }

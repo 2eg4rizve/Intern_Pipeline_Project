@@ -52,6 +52,8 @@ namespace InternPipeline.Managers.Manager
             return commonResponse;
         }
 
+       
+
         public async Task<CommonResponse?> GetByBlogIdManager(Guid id)
         {
             var commonResponse = new CommonResponse();
@@ -82,7 +84,41 @@ namespace InternPipeline.Managers.Manager
             return commonResponse;
         }
 
-       
+
+        public async Task<CommonResponse?> DeleteBlogManager(Guid id)
+        {
+            var commonResponse = new CommonResponse();
+            try
+            {
+
+                var GetBlogById = await _blogRepository.DeleteBlogRepository(id);
+
+
+               
+
+
+                if (GetBlogById == null)
+                {
+                    // logger
+                    commonResponse.status_code = 422;
+                    commonResponse.message = "No Blog Found";
+                    return commonResponse;
+                }
+                commonResponse.status_code = 200;
+                commonResponse.message = "Success";
+                commonResponse.data = GetBlogById;
+                return commonResponse;
+
+            }
+            catch (Exception ex)
+            {
+                // add logger ex
+                commonResponse.status_code = 500;
+            }
+            return commonResponse;
+        }
+
+
 
         //public async Task<CommonResponse> GetBlogManager()
         //{

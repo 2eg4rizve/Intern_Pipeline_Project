@@ -8,5 +8,8 @@ namespace InternPipeline.Repositories.Interface
         //sk <List<BlogModel>> GetBlogRepository();
 
         Task<BlogModel?> GetByBlogIdRepository(Guid id);
+
+
+        Task<BlogModel?> DeleteBlogRepository(Guid id);
     }
 }

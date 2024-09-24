@@ -14,6 +14,7 @@ namespace InternPipeline.Controllers
         public BlogController(IBlogManager blogManager)
         {
             _blogManager = blogManager;
+
         }
 
         [HttpPost("create-blog")]
@@ -46,6 +47,24 @@ namespace InternPipeline.Controllers
             var response = await _blogManager.GetByBlogIdManager(id);
             return Ok(response);
         }
+
+        [HttpDelete]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> Delete([FromRoute] Guid id)
+        {
+
+            var regionDomainModel = await _blogManager.DeleteBlogManager(id);
+
+
+            if (regionDomainModel == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(regionDomainModel);
+        }
+
+
 
 
 

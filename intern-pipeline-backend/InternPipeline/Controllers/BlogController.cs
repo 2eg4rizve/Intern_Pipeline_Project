@@ -19,7 +19,7 @@ namespace InternPipeline.Controllers
         [HttpPost("create-blog")]
         public async Task<IActionResult> CreateBlog(CreateBlogRequestEntity createBlogRequestEntity)
         {
-            var response = await _blogManager.CreateBlog(createBlogRequestEntity);
+            var response = await _blogManager.CreateBlogManager(createBlogRequestEntity);
             return Ok(response);
         }
     }
